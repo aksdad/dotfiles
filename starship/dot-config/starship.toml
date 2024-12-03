@@ -1,0 +1,71 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+continuation_prompt = "❯❯ "
+format = """
+[](fg:#7aa2f7)\
+[$os]($style)\
+[](bg:#3b4261 fg:#7aa2f7)\
+$directory\
+[](fg:#3b4261 bg:#292e42)\
+$git_branch\
+$git_status\
+[](fg:#292e42 bg:#1d2230)\
+$time\
+[ ](fg:#1d2230)\
+\n$character"""
+
+[directory]
+style = "fg:#a9b1d6 bg:#3b4261"
+format = "[ $path ]($style)"
+truncation_length = 64
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[git_branch]
+symbol = ""
+style = "bg:#292e42"
+format = '[[ $symbol $branch ](fg:#769ff0 bg:#292e42)]($style)'
+
+[git_status]
+style = "bg:#292e42"
+format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#292e42)]($style)'
+
+[time]
+disabled = false
+time_format = "%R"                                      # Hour:Minute Format
+style = "bg:#1d2230"
+format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
+
+[os]
+disabled = false
+style = "bg:#7aa2f7 fg:#ffffff"
+format = "[$symbol ]($style)"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = "󰀵"
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+EndeavourOS = ""
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+Pop = ""
