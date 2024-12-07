@@ -29,4 +29,4 @@ Added gnu sed to PATH
 
 ## Screenshot
 
-![screenshot](https://github.com/aksdad/dotfiles/blob/master/img/screenshot.jpg)
+![screenshot](https://github.com/aksdad/dotfiles/blob/main/img/screenshot.jpg)
