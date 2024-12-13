@@ -1,2 +1,7 @@
+# zsh plugins
+source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+antidote load
+
+# setup starship prompt
 eval "$(starship init zsh)"
 export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
