@@ -5,3 +5,6 @@ antidote load
 # setup starship prompt
 eval "$(starship init zsh)"
 export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+alias reload="source ~/.zshrc"
+chmod -R +x ~/bin/*
+export PATH="$HOME/bin:$PATH"

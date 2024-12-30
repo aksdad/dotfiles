@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Define the journal path
+JOURNAL_DIR=~/knowledge/journal/$(date +%Y)/$(date +%m)
+JOURNAL_FILE=$JOURNAL_DIR/$(date +%Y-%m-%d).md
+
+# Check if the directory exists, if not, create it
+if [ ! -d "$JOURNAL_DIR" ]; then
+    mkdir -p "$JOURNAL_DIR"
+    echo "Created directory: $JOURNAL_DIR"
+fi
+
+# Open the journal file in Neovim
+cd ~/knowledge/
+nvim "$JOURNAL_FILE"
+
