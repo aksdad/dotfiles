@@ -94,15 +94,11 @@ return {
                         group_index = 0,
                     },
                     {
-                        name = "nvim_lsp",
-                        option = {
-                            markdown_oxide = {
-                                keyword_pattern = [[\(\k\| \|\/\|#\)\+]]
-                            }
-                        }
+                        name = "nvim_lsp"
                     },
                     { name = "luasnip" },
                     { name = "path" },
+                    { name = "render-markdown" },
                 },
             })
         end,
@@ -134,4 +130,13 @@ return {
             indent = { enable = true, disable = { "ruby" } },
         },
     },
+    {
+        'MeanderingProgrammer/render-markdown.nvim',
+        dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+        ---@module 'render-markdown'
+        ---@type render.md.UserConfig
+        opts = {},
+    }
 }

@@ -99,20 +99,20 @@ return {
             },
           },
         },
-        markdown_oxide = {
-          capabilities = vim.tbl_deep_extend(
-            "force",
-            capabilities or {},
-            {
-              workspace = {
-                didChangeWatchedFiles = {
-                  dynamicRegistration = true,
-                },
-              },
-            }
-          ),
-          -- on_attach = on_attach, -- Use your on_attach function here
-        },
+        -- markdown_oxide = {
+        --   capabilities = vim.tbl_deep_extend(
+        --     "force",
+        --     capabilities or {},
+        --     {
+        --       workspace = {
+        --         didChangeWatchedFiles = {
+        --           dynamicRegistration = true,
+        --         },
+        --       },
+        --     }
+        --   ),
+        --   -- on_attach = on_attach, -- Use your on_attach function here
+        -- },
       }
 
       require("mason").setup()

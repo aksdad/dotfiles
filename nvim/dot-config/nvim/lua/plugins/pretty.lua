@@ -10,29 +10,41 @@ vim.cmd [[
 ]]
 
 return {
+  -- {
+  --   'folke/tokyonight.nvim',
+  --   priority = 1000,
+  --   init = function()
+  --     vim.cmd.colorscheme 'tokyonight-moon'
+  --     vim.cmd.hi 'Comment gui=none'
+  --   end,
+  --   opts = {
+  --     transparent = true,
+  --     style = 'moon',
+  --     on_highlights = function(highlights, colors)
+  --       highlights.LineNr = { fg = colors.fg_dark }
+  --     end,
+  --   },
+  -- },
   {
-    'folke/tokyonight.nvim',
-    priority = 1000,
-    init = function()
-      vim.cmd.colorscheme 'tokyonight-moon'
-      vim.cmd.hi 'Comment gui=none'
+    "rose-pine/neovim",
+    name = "rose-pine",
+    config = function()
+      require("rose-pine").setup({
+        styles = {
+          transparency = true,
+        }
+      })
+      vim.cmd("colorscheme rose-pine")
     end,
-    opts = {
-      transparent = true,
-      style = 'moon',
-      on_highlights = function(highlights, colors)
-        highlights.LineNr = { fg = colors.fg_dark }
-      end,
-    },
   },
   {
     'xiyaowong/nvim-transparent',
     config = function()
       require('transparent').setup {
-        enable = true, -- Enable transparent mode
-        extra_groups = { -- Groups to clear for transparency
-          'NormalFloat', -- Floating windows
-          'NvimTreeNormal', -- For Neo-tree or NvimTree
+        enable = true,       -- Enable transparent mode
+        extra_groups = {     -- Groups to clear for transparency
+          'NormalFloat',     -- Floating windows
+          'NvimTreeNormal',  -- For Neo-tree or NvimTree
           'TelescopeNormal', -- For Telescope popup
           'TelescopeBorder',
           'TelescopePromptBorder',
