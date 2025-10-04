@@ -14,3 +14,13 @@ export PATH="$HOME/bin:$PATH"
 
 # go
 export PATH=$PATH:$HOME/go/bin
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
+# setup preview for ctrl-t
+export FZF_CTRL_T_OPTS='
+  --style full
+  --preview "fzf-preview.sh {}"
+  --bind "focus:transform-header:file --brief {}"
+'
