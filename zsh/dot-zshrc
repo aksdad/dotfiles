@@ -8,3 +8,9 @@ export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
 alias reload="source ~/.zshrc"
 chmod -R +x ~/bin/*
 export PATH="$HOME/bin:$PATH"
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+# go
+export PATH=$PATH:$HOME/go/bin
