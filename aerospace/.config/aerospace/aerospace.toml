@@ -166,5 +166,5 @@ up = 'volume up'
 shift-down = ['volume set 0', 'mode main']
 
 [[on-window-detected]]
-if.app-id = 'com.apple.MobileSMS'
-run = 'layout floating'
+    check-further-callbacks = true
+    run = 'layout floating'
