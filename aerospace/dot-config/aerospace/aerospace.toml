@@ -165,6 +165,31 @@ down = 'volume down'
 up = 'volume up'
 shift-down = ['volume set 0', 'mode main']
 
+[workspace-to-monitor-force-assignment]
+    1 = 'main'
+    2 = 'main'
+    3 = 'main'
+    4 = 'main'
+    5 = 'main'
+    6 = ['built-in', 'LG HDR 4k']
+    7 = ['LG HDR 4k', 'built-in']
+
 [[on-window-detected]]
     check-further-callbacks = true
     run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.Safari'
+    run = ['layout tiling', 'move-node-to-workspace 1']
+
+[[on-window-detected]]
+    if.app-id = 'com.google.Chrome'
+    run = ['layout tiling', 'move-node-to-workspace 1']
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.Safari'
+    run = ['layout tiling', 'move-node-to-workspace 1']
+
+[[on-window-detected]]
+    if.app-id = 'com.github.wez.wezterm'
+    run = ['layout tiling', 'move-node-to-workspace 2']

@@ -113,6 +113,7 @@ return {
                 "bash",
                 "c",
                 "diff",
+                "go",
                 "html",
                 "lua",
                 "luadoc",
