@@ -24,3 +24,4 @@ vim.opt.scrolloff = 10
 vim.o.expandtab = true -- Use spaces instead of tabs
 vim.o.shiftwidth = 4 -- Number of spaces for indentation
 vim.o.tabstop = 4 -- Number of spaces per tab
+vim.o.relativenumber = true
