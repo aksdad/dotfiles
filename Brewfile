@@ -14,8 +14,12 @@ brew "jq"
 brew "utf8proc", args: ["HEAD"]
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Command-line fuzzy finder written in Go
+brew "fzf"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
 # Cross-shell prompt for astronauts
 brew "starship"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
