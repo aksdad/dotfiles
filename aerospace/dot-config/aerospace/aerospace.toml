@@ -57,11 +57,11 @@ preset = 'qwerty'
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
 inner.horizontal = 10
-inner.vertical =   10
-outer.left =       10
-outer.bottom =     10
-outer.top =        10
-outer.right =      10
+inner.vertical = 10
+outer.left = 10
+outer.bottom = 10
+outer.top = 10
+outer.right = 10
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -150,7 +150,10 @@ alt-shift-semicolon = 'mode service'
 [mode.service.binding]
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
-f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
+f = [
+    'layout floating tiling',
+    'mode main',
+] # Toggle between floating and tiling layout
 backspace = ['close-all-windows-but-current', 'mode main']
 
 # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
@@ -166,34 +169,34 @@ up = 'volume up'
 shift-down = ['volume set 0', 'mode main']
 
 [workspace-to-monitor-force-assignment]
-    1 = 'main'
-    2 = 'main'
-    3 = 'main'
-    4 = 'main'
-    5 = 'main'
-    6 = ['built-in', 'LG HDR 4k']
-    7 = ['LG HDR 4k', 'built-in']
+1 = 'main'
+2 = 'main'
+3 = 'main'
+4 = 'main'
+5 = 'main'
+6 = ['Sidecar', 'built-in', 'LG HDR 4k']
+7 = ['Sidecar', 'LG HDR 4k', 'built-in']
 
 [[on-window-detected]]
-    check-further-callbacks = true
-    run = 'layout floating'
+check-further-callbacks = true
+run = 'layout floating'
 
 [[on-window-detected]]
-    if.app-id = 'com.apple.Safari'
-    run = ['layout tiling', 'move-node-to-workspace 1']
+if.app-id = 'com.apple.Safari'
+run = ['layout tiling', 'move-node-to-workspace 1']
 
 [[on-window-detected]]
-    if.app-id = 'com.google.Chrome'
-    run = ['layout tiling', 'move-node-to-workspace 1']
+if.app-id = 'com.google.Chrome'
+run = ['layout tiling', 'move-node-to-workspace 1']
 
 [[on-window-detected]]
-    if.app-id = 'com.apple.Safari'
-    run = ['layout tiling', 'move-node-to-workspace 1']
+if.app-id = 'com.apple.Safari'
+run = ['layout tiling', 'move-node-to-workspace 1']
 
 [[on-window-detected]]
-    if.app-id = 'com.github.wez.wezterm'
-    run = ['layout tiling', 'move-node-to-workspace 2']
+if.app-id = 'com.github.wez.wezterm'
+run = ['layout tiling', 'move-node-to-workspace 2']
 
 [[on-window-detected]]
-    if.app-id = 'md.obsidian'
-    run = ['layout floating', 'move-node-to-workspace 1']
+if.app-id = 'md.obsidian'
+run = ['layout floating', 'move-node-to-workspace 1']
