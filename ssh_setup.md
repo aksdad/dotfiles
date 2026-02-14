@@ -24,4 +24,4 @@ Create or edit `~/.ssh/config`:
 Copy the public key:
 `pbcopy < ~/.ssh/id_ed25519.pub`
 
-Then go to **GitHub → Settings → SSH and GPG keys → New SSH key** and paste it.
+Then go to [**GitHub → Settings → SSH and GPG keys → New SSH key**](https://github.com/settings/keys) and paste it.
