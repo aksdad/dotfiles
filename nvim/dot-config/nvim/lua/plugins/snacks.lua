@@ -16,6 +16,10 @@ return {
             bufdelete = { enabled = true },
             indent = { enabled = true },
             input = { enabled = true },
+            lazygit = {
+                enabled = true,
+
+            },
             notifier = { enabled = true, style = "fancy", top_down = false, margin = { bottom = 1 } },
             picker = { enabled = true },
             quickfile = { enabled = true },
@@ -62,6 +66,7 @@ return {
             { "<leader>gS", function() Snacks.picker.git_stash() end,                               desc = "Git Stash" },
             { "<leader>gd", function() Snacks.picker.git_diff() end,                                desc = "Git Diff (Hunks)" },
             { "<leader>gf", function() Snacks.picker.git_log_file() end,                            desc = "Git Log File" },
+            { "<leader>gu", function() Snacks.lazygit.open() end,                                   desc = "Lazygit" },
         },
     },
 }
