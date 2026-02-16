@@ -32,3 +32,4 @@ brew "tpm"
 brew "wget"
 # AeroSpace is an i3-like tiling window manager for macOS
 cask "nikitabobko/tap/aerospace"
+brew "lazygit"
