@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# delta wrapper that forces light/dark based on system theme
+
+mode="--$(get-theme)"
+exec delta $mode "$@"

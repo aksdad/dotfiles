@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# get-theme: Returns the current macOS appearance (dark or light)
+# Priority:
+#   1. Read from ~/.cache/share/theme (written by wezterm)
+#   2. Query macOS directly via defaults read
+#   3. Default to "dark"
+
+CACHE_FILE="${HOME}/.cache/share/theme"
+
+# Check cache file first (fastest)
+if [[ -f "$CACHE_FILE" ]]; then
+    cached_theme=$(cat "$CACHE_FILE" 2>/dev/null | tr -d '[:space:]')
+    if [[ "$cached_theme" == "dark" || "$cached_theme" == "light" ]]; then
+        echo "$cached_theme"
+        exit 0
+    fi
+fi
+
+# Fallback: query macOS directly
+if defaults read -g AppleInterfaceStyle 2>/dev/null | grep -q "Dark"; then
+    echo "dark"
+else
+    echo "light"
+fi

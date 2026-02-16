@@ -40,6 +40,31 @@ local function opacity_for_appearance(appearance)
     end
 end
 
+-- Cache file for theme
+local theme_cache_file = os.getenv("HOME") .. "/.cache/share/theme"
+
+-- Function to write theme to cache
+local function write_theme_to_cache(appearance)
+    local theme = "dark"
+    if appearance:find("Light") then
+        theme = "light"
+    end
+
+    -- Create directory if it doesn't exist
+    local cache_dir = os.getenv("HOME") .. "/.cache/share"
+    os.execute("mkdir -p " .. cache_dir)
+
+    -- Write theme to cache file
+    local file = io.open(theme_cache_file, "w")
+    if file then
+        file:write(theme)
+        file:close()
+    end
+end
+
+-- Write initial theme on config load
+write_theme_to_cache(get_appearance())
+
 local config = {
     color_scheme = scheme_for_appearance(get_appearance()),
     window_background_opacity = opacity_for_appearance(get_appearance()),
@@ -48,5 +73,11 @@ local config = {
     window_decorations = "RESIZE",
     keys = keys,
 }
+
+-- Update theme cache when window config changes
+wezterm.on("window-config-reloaded", function(window, pane)
+    local appearance = get_appearance()
+    write_theme_to_cache(appearance)
+end)
 
 return config
