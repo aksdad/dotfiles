@@ -32,9 +32,17 @@ function scheme_for_appearance(appearance)
     end
 end
 
+local function opacity_for_appearance(appearance)
+    if appearance:find("Dark") then
+        return 0.95
+    else
+        return 1
+    end
+end
+
 local config = {
     color_scheme = scheme_for_appearance(get_appearance()),
-    window_background_opacity = 0.95,
+    window_background_opacity = opacity_for_appearance(get_appearance()),
     macos_window_background_blur = 30,
     hide_tab_bar_if_only_one_tab = true,
     window_decorations = "RESIZE",
