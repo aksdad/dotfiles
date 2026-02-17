@@ -1,17 +1,53 @@
 local wezterm = require("wezterm")
+local act = wezterm.action
+local sessions = wezterm.plugin.require(
+    "https://github.com/abidibo/wezterm-sessions"
+)
 
 local keys = {
     -- Make Option-Left equivalent to Alt-b which many line editors interpret as backward-word
     {
         key = "LeftArrow",
         mods = "OPT",
-        action = wezterm.action({ SendString = "\x1bb" }),
+        action = act({ SendString = "\x1bb" }),
     },
     -- Make Option-Right equivalent to Alt-f; forward-word
     {
         key = "RightArrow",
         mods = "OPT",
-        action = wezterm.action({ SendString = "\x1bf" }),
+        action = act({ SendString = "\x1bf" }),
+    },
+    {
+        key = 'S',
+        mods = 'CTRL|SHIFT',
+        action = act.ShowLauncherArgs { flags = 'FUZZY|WORKSPACES' },
+    },
+    {
+        key = 'F',
+        mods = 'CTRL|SHIFT',
+        action = act.PaneSelect {
+        },
+    },
+    {
+        key = 'F',
+        mods = 'CTRL|ALT|SHIFT',
+        action = act.PaneSelect {
+            mode = 'SwapWithActive',
+        },
+    },
+    {
+        key = 'W',
+        mods = 'CTRL|SHIFT',
+        action = act.PromptInputLine {
+            description = 'Create / switch to workspace — enter name:',
+            action = wezterm.action_callback(function(window, pane, line)
+                -- line == nil if user pressed Esc / cancelled
+                if line and line ~= "" then
+                    -- create or switch to the named workspace
+                    window:perform_action(act.SwitchToWorkspace { name = line }, pane)
+                end
+            end),
+        },
     },
 }
 
@@ -72,7 +108,25 @@ local config = {
     hide_tab_bar_if_only_one_tab = true,
     window_decorations = "RESIZE",
     keys = keys,
+    front_end = "WebGpu",
 }
+wezterm.on('update-right-status', function(window, _)
+    window:set_right_status(window:active_workspace())
+end)
+
+-- Setup sessions
+-- Optional: adds default keybindings and plugin configuration
+-- ALT + s   → Save session
+-- ALT + l   → Load session
+-- ALT + r   → Restore session
+-- CTRL+SHIFT + d → Delete session
+-- CTRL+SHIFT + e → Edit session
+-- ALT + a   → Toggle auto-save
+-- ALT + f   → Fork session
+sessions.apply_to_config(config, {
+    -- Auto-save interval in seconds (default: 30)
+    auto_save_interval_s = 30,
+})
 
 -- Update theme cache when window config changes
 wezterm.on("window-config-reloaded", function(window, pane)
